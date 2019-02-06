@@ -72,7 +72,7 @@ function whoFollowsMost() {
   return out;
 }
 
-console.log(whoFollowsMost());
+// console.log(whoFollowsMost());
 
 // Identify who has the most followers
 function whoIsFollowedMost() {}
@@ -83,4 +83,28 @@ function whoFollowsMostOver30() {}
 // List those who follow someone that doesn't follow them back
 function noFollowBack() {}
 // List everyone and their reach (sum of # of followers and # of followers of followers)
-function listReach() {}
+function listReach() {
+  for (const elem in data) {
+    var person = data[elem];
+    var reach = 0;
+    var out = "";
+
+    out += person.name + " has a reach of ";
+
+    for (const elem in person.follows) {
+      var follows = find(person.follows[elem]);
+      reach++;
+
+      for (const elem in follows.follows) {
+        var follower = find(follows.follows[elem]);
+        reach++;
+      }
+    }
+
+    out += reach;
+
+    console.log(out);
+  }
+}
+
+listReach();
