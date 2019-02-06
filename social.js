@@ -30,3 +30,35 @@ var data = {
     follows: ["f05"]
   }
 };
+
+// List everyone and for each of them, list the names of who they follow and who follows them
+function listAll() {
+  for (const elem in data) {
+    var person = data[elem];
+
+    console.log("Name: ", person.name, "\n  Follows: ");
+
+    for (const elem in person.follows) {
+      var follows = find(person.follows[elem]);
+      console.log("    -", follows.name, "\n    Who are followed by: ");
+
+      for (const elem in follows.follows) {
+        var follower = find(follows.follows[elem]);
+        console.log("      *", follower.name);
+      }
+    }
+  }
+}
+
+listAll();
+
+// function to find via uid
+function find(id) {
+  return data[id];
+}
+// Identify who follows the most people
+// Identify who has the most followers
+// Identify who has the most followers over 30
+// Identify who follows the most people over 30
+// List those who follow someone that doesn't follow them back
+// List everyone and their reach (sum of # of followers and # of followers of followers)
