@@ -57,8 +57,14 @@ function find(id) {
   return data[id];
 }
 // Identify who follows the most people
+function whoFollowsMost() {}
 // Identify who has the most followers
+function whoIsFollowedMost() {}
 // Identify who has the most followers over 30
+function over30MostFollowers() {}
 // Identify who follows the most people over 30
+function whoFollowsMostOver30() {}
 // List those who follow someone that doesn't follow them back
+function noFollowBack() {}
 // List everyone and their reach (sum of # of followers and # of followers of followers)
+function listReach() {}
