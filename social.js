@@ -22,7 +22,7 @@ var data = {
   f05: {
     name: "Elizabeth",
     age: 45,
-    follows: ["f04"]
+    follows: ["f06"]
   },
   f06: {
     name: "Finn",
@@ -81,7 +81,30 @@ function over30MostFollowers() {}
 // Identify who follows the most people over 30
 function whoFollowsMostOver30() {}
 // List those who follow someone that doesn't follow them back
-function noFollowBack() {}
+function noFollowBack() {
+  for (const elem in data) {
+    var person = data[elem];
+    var followBack = true;
+
+    for (const elem in person.follows) {
+      var follows = find(person.follows[elem]);
+
+      for (const elem in follows.follows) {
+        var follower = find(follows.follows[elem]);
+        if (follower.name !== person.name) {
+          followBack = false;
+        }
+      }
+    }
+
+    if (!followBack) {
+      console.log(person.name, "follows someone who doesn't follow them back");
+    }
+  }
+}
+
+noFollowBack();
+
 // List everyone and their reach (sum of # of followers and # of followers of followers)
 function listReach() {
   for (const elem in data) {
@@ -107,4 +130,4 @@ function listReach() {
   }
 }
 
-listReach();
+// listReach();
