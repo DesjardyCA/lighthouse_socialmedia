@@ -50,14 +50,28 @@ function listAll() {
   }
 }
 
-listAll();
+// listAll();
 
 // function to find via uid
 function find(id) {
   return data[id];
 }
+
 // Identify who follows the most people
-function whoFollowsMost() {}
+function whoFollowsMost() {
+  var out = data[Object.keys(data)[0]];
+  for (const elem in data) {
+    var person = data[elem];
+    if (out.follows.length < person.follows.length) {
+      out = person;
+    }
+  }
+
+  return out;
+}
+
+console.log(whoFollowsMost());
+
 // Identify who has the most followers
 function whoIsFollowedMost() {}
 // Identify who has the most followers over 30
