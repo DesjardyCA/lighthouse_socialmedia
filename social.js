@@ -59,7 +59,9 @@ function find(id) {
 
 // Identify who follows the most people
 function whoFollowsMost() {
-  var out = data[Object.keys(data)[0]];
+  var out = {
+    follows: []
+  };
   for (const elem in data) {
     var person = data[elem];
     if (out.follows.length < person.follows.length) {
